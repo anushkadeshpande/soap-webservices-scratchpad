@@ -3,6 +3,9 @@ package com.example;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.jws.WebService;
+
+@WebService
 public class ProductCatalog {
 	
 	public List<String> getProductCategories() {
