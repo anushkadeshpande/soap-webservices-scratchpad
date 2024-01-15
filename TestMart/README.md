@@ -4,7 +4,8 @@ To build the project, download <a href="https://github.com/javaee/metro-jax-ws?t
 
 ### Testing:
 ##### The jsp page can be accessed via http://localhost:8080/TestMart/NewFile.jsp
-  ![image](https://github.com/anushkadeshpande/soap-webservices-scratchpad/assets/53345232/df0d21a3-4b65-46be-8bdf-7428d8d7b334)
+  <img src="https://github.com/anushkadeshpande/soap-webservices-scratchpad/assets/53345232/335da7e1-56e9-4ddf-859a-86d7611b4198" height="70">
+<!--   ![image](https://github.com/anushkadeshpande/soap-webservices-scratchpad/assets/53345232/335da7e1-56e9-4ddf-859a-86d7611b4198) -->
 
 
 #### Webservice home:
