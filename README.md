@@ -12,7 +12,7 @@ Stands for ***Service Endpoint Interface***
 ##### wsimport
 It is tool used to generate stubs
 ```
-wsimport -keep -s src http://wsgeoip.lavasoft.com/ipservice.asmx?WSDL
+wsimport -keep -s <stubs-generation-location> http://wsgeoip.lavasoft.com/ipservice.asmx?WSDL
 ```
 
 
