@@ -6,4 +6,9 @@
       name="ProductCatalog"
       implementation="com.example.ProductCatalog"
       url-pattern="/home"/>
+      
+   <endpoint
+      name="ShopInfo"
+      implementation="com.example.ShopInfo"
+      url-pattern="/ShopInfoService"/>
 </endpoints>
