@@ -1,0 +1,62 @@
+<definitions xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+  xmlns:wsp="http://www.w3.org/ns/ws-policy"
+  xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy"
+  xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+  xmlns:tns="http://example.com/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns="http://schemas.xmlsoap.org/wsdl/" targetNamespace="http://example.com/" name="ProductCatalogService">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://example.com/" schemaLocation="http://localhost:8080/TestMart/home?xsd=1"/>
+    </xsd:schema>
+  </types>
+  <message name="getProducts">
+    <part name="parameters" element="tns:getProducts"/>
+  </message>
+  <message name="getProductsResponse">
+    <part name="parameters" element="tns:getProductsResponse"/>
+  </message>
+  <message name="getProductCategories">
+    <part name="parameters" element="tns:getProductCategories"/>
+  </message>
+  <message name="getProductCategoriesResponse">
+    <part name="parameters" element="tns:getProductCategoriesResponse"/>
+  </message>
+  <portType name="ProductCatalog">
+    <operation name="getProducts">
+      <input wsam:Action="http://example.com/ProductCatalog/getProductsRequest" message="tns:getProducts"/>
+      <output wsam:Action="http://example.com/ProductCatalog/getProductsResponse" message="tns:getProductsResponse"/>
+    </operation>
+    <operation name="getProductCategories">
+      <input wsam:Action="http://example.com/ProductCatalog/getProductCategoriesRequest" message="tns:getProductCategories"/>
+      <output wsam:Action="http://example.com/ProductCatalog/getProductCategoriesResponse" message="tns:getProductCategoriesResponse"/>
+    </operation>
+  </portType>
+  <binding name="ProductCatalogPortBinding" type="tns:ProductCatalog">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="getProducts">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="getProductCategories">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="ProductCatalogService">
+    <port name="ProductCatalogPort" binding="tns:ProductCatalogPortBinding">
+      <soap:address location="http://localhost:8080/TestMart/home"/>
+    </port>
+  </service>
+</definitions>
