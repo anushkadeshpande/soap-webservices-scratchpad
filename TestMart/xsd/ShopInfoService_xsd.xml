@@ -1,0 +1,19 @@
+<xs:schema
+  xmlns:tns="http://example.com/"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  version="1.0"
+  targetNamespace="http://example.com/"
+>
+  <xs:element name="getShopInfo" type="tns:getShopInfo" />
+  <xs:element name="getShopInfoResponse" type="tns:getShopInfoResponse" />
+  <xs:complexType name="getShopInfo">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="getShopInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
