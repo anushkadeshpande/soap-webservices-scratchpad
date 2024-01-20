@@ -46,7 +46,7 @@ There are two styles of binding:
   - Provides more validation (due to separate xsd)
   - Example:
       
-  <a href="https://github.com/anushkadeshpande/soap-webservices-scratchpad/blob/53c3062f93045b9a73c9e6c2066c526f36c62bd7/TestMart/wsdl/Document_Style_wsdl.xml">🔗 WSDL</a>
+  <a href="https://github.com/anushkadeshpande/soap-webservices-scratchpad/blob/2d3018a7cca09725764d0621cd7c1a89592586f2/TestMart/wsdl/Document_Style.wsdl">🔗 WSDL</a>
       
   The following part in wsdl links xsd to the wsdl
   ```xml
@@ -60,7 +60,7 @@ There are two styles of binding:
 
   This is the xsd where the elements `getShopInfo` and `getShopInfoResponse` are defined. It specifies the input and output types for each of them.
 
-  <a href="https://github.com/anushkadeshpande/soap-webservices-scratchpad/blob/53c3062f93045b9a73c9e6c2066c526f36c62bd7/TestMart/xsd/ShopInfoService_xsd.xml">🔗 XSD</a>
+  <a href="https://github.com/anushkadeshpande/soap-webservices-scratchpad/blob/2d3018a7cca09725764d0621cd7c1a89592586f2/TestMart/xsd/ShopInfoService.xsd">🔗 XSD</a>
 
   ```xml
     <xs:schema xmlns:tns="http://example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://example.com/">
@@ -111,7 +111,7 @@ There are two styles of binding:
   - No schema is generated, instead it is defined inline
   - Example
      
-  <a href="https://github.com/anushkadeshpande/soap-webservices-scratchpad/blob/53c3062f93045b9a73c9e6c2066c526f36c62bd7/TestMart/wsdl/RPC_Style_wsdl.xml">🔗 WSDL</a>
+  <a href="https://github.com/anushkadeshpande/soap-webservices-scratchpad/blob/2d3018a7cca09725764d0621cd7c1a89592586f2/TestMart/wsdl/RPC_Style.wsdl">🔗 WSDL</a>
   
   There is no type section in this type of binding.
   ```xml
