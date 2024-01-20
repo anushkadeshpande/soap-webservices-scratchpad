@@ -6,6 +6,18 @@
 Stands for ***Web service description language***
 Contains methods exposed, their arguments and return types
 
+  ##### Structure:
+  ```
+    SERVICE
+    /     \
+  PORT   BINDING  -- PORT TYPE
+                        |
+                    OPERATIONS
+                     /      \
+              INPUT MSG    OUTPUT MSG
+
+EACH MESSAGE THEN REFERS TO TYPES
+```
 #### SEI
 Stands for ***Service Endpoint Interface***
 
