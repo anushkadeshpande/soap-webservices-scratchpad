@@ -24,26 +24,31 @@ Service and portname from the wsdl is used to figure out which stub is to be use
 
 <br>
 
-#### Binding
+### Binding
+It is a way to configure what goes in the webservice and what comes out
 Used to specify the data formats used.
 There are two styles of binding:
-- Document Style:
-    - An xsd schema is defined and and that is referred
-    - This is the default binding style
-    - Example:
+#### Document Style:
+  - An xsd schema is defined and and that is referred
+  - This is the default binding style
+  - Provides more validation (due to separate xsd)
+  - Example:
+      
+  <a href="">WSDL 🔗</a>
+      
   The following part in wsdl links xsd to the wsdl
-    ```xml
+  ```xml
     <types>
       <xsd:schema>
         <xsd:import namespace="http://example.com/" schemaLocation="http://localhost:8080/TestMart/ShopInfoService?xsd=1"/>
       </xsd:schema>
     </types>
-    ```
+  ```
     
 
   This is the xsd where the elements `getShopInfo` and `getShopInfoResponse` are defined. It specifies the input and output types for each of them.
 
-    ```xml
+  ```xml
     <xs:schema xmlns:tns="http://example.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://example.com/">
       <xs:element name="getShopInfo" type="tns:getShopInfo"/>
       <xs:element name="getShopInfoResponse" type="tns:getShopInfoResponse"/>
@@ -58,20 +63,20 @@ There are two styles of binding:
         </xs:sequence>
       </xs:complexType>
     </xs:schema>
-    ```
-    > Note: The `minOccurs` here means the number of times the element can appear. Here, it is 0 to accomodate null values as well
+  ```
+  > Note: The `minOccurs` here means the number of times the element can appear. Here, it is 0 to accomodate null values as well
 
   The following part links the types defined in xsd with the wsdl
 
-    ```xml
+  ```xml
     <message name="getShopInfo">
       <part name="parameters" element="tns:getShopInfo"/>
     </message>
     <message name="getShopInfoResponse">
       <part name="parameters" element="tns:getShopInfoResponse"/>
     </message>
-    ```
-    
+  ```
+  
   This part declares the actual binding:
   ```xml
   <binding name="ShopInfoPortBinding" type="tns:ShopInfo">
@@ -87,6 +92,39 @@ There are two styles of binding:
     </operation>
   </binding>
   ``` 
-- RPC Style:
-    - The message is specified as simple name value pair
-    - No schema is generated, instead it is defined inline
+#### RPC Style:
+  - The message is specified as simple name value pair
+  - No schema is generated, instead it is defined inline
+  - Example
+     
+  <a href="">WSDL 🔗</a>
+  
+  There is no type section in this type of binding.
+  ```xml
+  <types/>
+  ```
+  Instead, the types are declared in message section itself
+  ```xml
+  <message name="getShopInfo">
+    <part name="arg0" type="xsd:string"/>
+  </message>
+  <message name="getShopInfoResponse">
+    <part name="return" type="xsd:string"/>
+  </message>
+  ```
+
+  And lastly, the style is mentioned in the binding section and an additional namespace attribute is added
+  ```xml
+    <binding name="ShopInfoPortBinding" type="tns:ShopInfo">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"/>
+    <operation name="getShopInfo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal" namespace="http://example.com/"/>
+      </input>
+      <output>
+        <soap:body use="literal" namespace="http://example.com/"/>
+      </output>
+    </operation>
+  </binding>
+  ```
