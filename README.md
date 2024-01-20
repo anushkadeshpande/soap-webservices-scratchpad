@@ -59,6 +59,7 @@ There are two styles of binding:
       </xs:complexType>
     </xs:schema>
     ```
+    > Note: The `minOccurs` here means the number of times the element can appear. Here, it is 0 to accomodate null values as well
 
   The following part links the types defined in xsd with the wsdl
 
