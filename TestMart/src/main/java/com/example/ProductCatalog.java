@@ -17,6 +17,7 @@ public class ProductCatalog {
 		return service.getProductCategories();
 	}
 	
+//	@WebMethod(exclude=true)  -------- we can use the exclude property to not expose the method
 	@WebMethod
 	public List<String> getProducts(String category) {
 		return service.getProducts(category);
