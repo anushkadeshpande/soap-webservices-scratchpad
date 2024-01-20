@@ -2,23 +2,22 @@ package com.example;
 
 import java.util.List;
 
-import javax.jws.WebMethod;
 import javax.jws.WebService;
 
 import com.example.service.ProductServiceImpl;
 
-@WebService
-public class ProductCatalog {
+@WebService(endpointInterface = "com.example.ProductCatalogInterface")
+public class ProductCatalog implements ProductCatalogInterface {
 	
 	ProductServiceImpl service = new ProductServiceImpl();
 	
-	@WebMethod
+	@Override
 	public List<String> getProductCategories() {
 		return service.getProductCategories();
 	}
 	
 //	@WebMethod(exclude=true)  -------- we can use the exclude property to not expose the method
-	@WebMethod
+	@Override
 	public List<String> getProducts(String category) {
 		return service.getProducts(category);
 	}
